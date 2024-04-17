@@ -14,4 +14,24 @@ instance.interceptors.request.use(
   }
 );
 
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    switch (error.response.status) {
+      case 401:
+        break;
+      case 403:
+        break;
+      case 404:
+        break;
+      case 500:
+        break;
+      default:
+        break;
+    }
+}
+);
+
 export default instance;
