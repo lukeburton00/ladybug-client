@@ -3,7 +3,7 @@ import LogoutForm from '../auth/LogoutForm';
 
 function Navbar() {
   return (
-    <nav class="navbar bg-white fixed-top">
+    <nav class="container navbar bg-white fixed-top">
     <div class="container-fluid bg-white">
         <a class="navbar-brand" href="#">LadyBug</a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
