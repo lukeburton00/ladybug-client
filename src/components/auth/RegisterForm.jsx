@@ -10,7 +10,7 @@ function RegisterPage() {
 
   const handleRegister = async () => {
     try {
-      await instance.post('/api/auth/register', {
+      await instance.post('/auth/register', {
         user: {
           email,
           password,

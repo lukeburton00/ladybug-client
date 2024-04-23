@@ -9,7 +9,7 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      await instance.post('/api/auth/login', {
+      await instance.post('/auth/login', {
         user: {
           email,
           password,
