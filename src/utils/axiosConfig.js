@@ -19,19 +19,8 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    switch (error.response.status) {
-      case 401:
-        break;
-      case 403:
-        break;
-      case 404:
-        break;
-      case 500:
-        break;
-      default:
-        break;
+    throw error;
     }
-}
 );
 
 export default instance;
