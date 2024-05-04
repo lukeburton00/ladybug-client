@@ -70,7 +70,7 @@ function Dashboard() {
                 <div class="w-25 p-2 rounded shadow">
                     <p class="fw-bold">{project.name}</p>
                     <button class="btn btn-danger m-1" onClick={() => handleDeleteProject(project.id)}>Delete</button>
-                    <button class="btn btn-primary m-1" onClick={() => handleNavigateToProject(project)}>Open</button>
+                    <button class="btn btn-primary m-1" onClick={() => handleNavigateToProject(project.id)}>Open</button>
                 </div>
             </div>
         )}

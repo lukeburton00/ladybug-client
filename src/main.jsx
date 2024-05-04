@@ -8,6 +8,7 @@ import LoginForm from './components/auth/LoginForm.jsx';
 import RegisterPage from './components/auth/RegisterForm.jsx';
 import Dashboard from './components/dashboard/Dashboard';
 import NewProjectForm from './components/projects/NewProjectForm';
+import ProjectPage from './components/projects/ProjectPage.jsx';
 import './index.css';
 
 const App = () => {
@@ -16,11 +17,12 @@ const App = () => {
         <Navbar/>
         <div class="container content my-5 py-1">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="create-project" element={<NewProjectForm />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/create-project" element={<NewProjectForm />} />
+            <Route path="/projects/:id" element={<ProjectPage />} />
         </Routes>
         </div>
       <Footer />
