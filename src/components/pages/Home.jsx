@@ -6,7 +6,7 @@ function Home() {
     <div>
         <div class="container display-flex justify-content-center align-items-center "> 
             <div class="row-sm my-5 py-5 text-center">
-                <h1 class="display-1 fw-bold display-inline">Track your projects with ease.</h1>
+                <h1 class="display-2 fw-bold display-inline">Manage your projects with ease.</h1>
             </div>
             <div class="row">
                 <a href="/login" class="container w-25 align-items-center justify-content-center text-center btn btn-primary">Get Started</a>
