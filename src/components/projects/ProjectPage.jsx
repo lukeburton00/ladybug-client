@@ -38,8 +38,8 @@ function ProjectPage() {
     }
 
     return (
-        <div>
-            {data.project.name}
+        <div class="container m-5">
+            <h1 class="display-5"> {data.project.name}</h1>
         </div>
     )
 }
