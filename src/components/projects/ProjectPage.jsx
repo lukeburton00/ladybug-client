@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../utils/axiosConfig';
 
 function ProjectPage() {
-  const [data, setData] = useState('');
+  const [project, setProject] = useState('');
+  const [tasks, setTasks] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -13,10 +14,22 @@ function ProjectPage() {
         const getProject = async () => {
             try {
                 const response = await instance.get(`/projects/${id}`, {withCredentials: true});
-                setData(response.data);
+                setProject(response.data);
                 console.log(response.data);
             }
       
+            catch (error) {
+                setError(error);
+            }
+        };
+
+        const getTasks = async () => {
+            try {
+                const response = await instance.get(`/projects/${id}/tasks`, {withCredentials: true});
+                setTasks(response.data);
+                console.log(response.data);
+            }
+
             catch (error) {
                 setError(error);
             }
@@ -24,9 +37,10 @@ function ProjectPage() {
             finally {
                 setLoading(false);
             }
-        };
+        }
     
         getProject();
+        getTasks();
     }, [id]);
 
     if (loading) {
@@ -39,7 +53,8 @@ function ProjectPage() {
 
     return (
         <div class="container m-5">
-            <h1 class="display-5"> {data.project.name}</h1>
+            <h1 class="display-5"> {project.project.name}</h1>
+            <h1 class="display-5"> {tasks.tasks[0]}</h1>
         </div>
     )
 }
