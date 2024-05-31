@@ -37,11 +37,15 @@ function ProjectPage() {
             finally {
                 setLoading(false);
             }
-        }
+        };
     
         getProject();
         getTasks();
     }, [id]);
+
+    const handleCreateTask = async () => {
+      console.log("Create Task");  
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -55,6 +59,7 @@ function ProjectPage() {
         <div class="container m-5">
             <h1 class="display-5"> {project.project.name}</h1>
             <h1 class="display-5"> {tasks.tasks[0]}</h1>
+            <button class="btn btn-primary w-25 shadow-lg rounded" onClick={handleCreateTask}>Create Task</button>
         </div>
     )
 }
