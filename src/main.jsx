@@ -8,6 +8,7 @@ import LoginForm from './components/auth/LoginForm.jsx';
 import RegisterPage from './components/auth/RegisterForm.jsx';
 import Dashboard from './components/dashboard/Dashboard';
 import NewProjectForm from './components/projects/NewProjectForm';
+import NewTaskForm from './components/tasks/NewTaskForm';
 import ProjectPage from './components/projects/ProjectPage.jsx';
 import './index.css';
 
@@ -22,7 +23,8 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/create-project" element={<NewProjectForm />} />
-            <Route path="/projects/:id" element={<ProjectPage />} />
+            <Route exact path="/projects/:id" element={<ProjectPage />} />
+            <Route path="/projects/:id/create-task" element={<NewTaskForm />} />
         </Routes>
         </div>
       <Footer />

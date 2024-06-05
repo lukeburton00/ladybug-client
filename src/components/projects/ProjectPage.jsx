@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../utils/axiosConfig';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 function ProjectPage() {
   const [project, setProject] = useState('');
@@ -44,8 +45,12 @@ function ProjectPage() {
     }, [id]);
 
     const handleCreateTask = async () => {
-      console.log("Create Task");  
+      navigate(`/projects/${id}/create-task`);  
     };
+
+    const onDragEnd = (result) => {
+        console.log("Drag End");
+    }
 
     if (loading) {
         return <div>Loading...</div>;
@@ -55,12 +60,24 @@ function ProjectPage() {
         return <div>Error: {error.message}</div>;
     }
 
+    const tasksList = tasks.tasks.map((task) => {
+        return (
+            <div class="row p-3">
+                <div class="w-25 p-2 rounded shadow">
+                    <p class="fw-bold">{task.title}</p>
+                    <button class="btn btn-danger m-1" onClick={() => handleDeleteTask(task.id)}>Delete</button>
+                    <button class="btn btn-primary m-1" onClick={() => handleNavigateToTask(task.id)}>Open</button>
+                </div>
+            </div>
+        )
+    })
+
     return (
-        <div class="container m-5">
-            <h1 class="display-5"> {project.project.name}</h1>
-            <h1 class="display-5"> {tasks.tasks[0]}</h1>
-            <button class="btn btn-primary w-25 shadow-lg rounded" onClick={handleCreateTask}>Create Task</button>
-        </div>
+            <div class="container m-5">
+                <h1 class="display-5"> {project.project.name}</h1>
+                <h1 class="display-5"> {tasksList}</h1>
+                <button class="btn btn-primary w-25 shadow-lg rounded" onClick={handleCreateTask}>Create Task</button>
+            </div>
     )
 }
 
