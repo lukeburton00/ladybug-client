@@ -19,7 +19,7 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    throw error;
+    return Promise.reject(error);
     }
 );
 
